@@ -10,10 +10,12 @@
          where app_category.appId=#{id};
     </select>
 
-    <select id="getAllCategory" resultType="Category">
+    <select id="getAllCategory" resultType="Category" parameterType="int">
         select categoryId,appId,category,icon,brief
         from app_category left join category on app_category.categoryId=category.id
-        order by appId;
-
+        where exists (select * from
+        (select id from apps order by updateTime desc limit #{start},#{end} ) as c
+        where appId=c.id)
+        order by appId desc;
     </select>
 </mapper>

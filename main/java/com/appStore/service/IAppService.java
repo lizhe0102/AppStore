@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public interface IAppService {
     AppMessage getAppMessage(int id);
-    ArrayList<AppMessage> getAllAppMessage();
+    ArrayList<AppMessage> getAllAppMessage(int start,int end);
 }

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.spi.http.HttpContext;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -28,7 +29,8 @@ public class UserController {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         long userId = Long.parseLong(id);
-        System.out.print(userId);
+
+        //System.out.print(userId);
         User user = this.userService.selectUser(userId);
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));

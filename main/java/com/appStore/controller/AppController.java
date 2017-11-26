@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/app")
@@ -19,9 +20,18 @@ public class AppController {
     @Resource
     private IAppService appService;
 
-    @RequestMapping("/list")
-    public void getAppList(HttpServletRequest request, HttpServletResponse response)throws IOException
+    @RequestMapping("/list/{start}/{length}")
+    public void getAppList(HttpServletRequest request, HttpServletResponse response
+    ,@PathVariable("start") String start,@PathVariable("length") String length)throws IOException
     {
+        ///
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        int s=Integer.parseInt(start);
+        int l=Integer.parseInt(length);
+        ArrayList<AppMessage> appMessages=this.appService.getAllAppMessage(s,l);
+        ObjectMapper mapper=new ObjectMapper();
+        response.getWriter().write(mapper.writeValueAsString(appMessages));
 
     }
 

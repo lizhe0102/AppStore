@@ -1,5 +1,7 @@
 package com.appStore.model;
 
+import java.util.ArrayList;
+
 public class AppCategory {
     private int id;
     private int appId;

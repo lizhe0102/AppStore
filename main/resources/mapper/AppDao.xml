@@ -8,7 +8,9 @@
         SELECT * FROM apps WHERE id = #{id}
     </select>
 
-    <select id="getAllApp" resultType="App">
-        select* from apps order by id;
+    <select id="getAllApp" resultType="App" parameterType="int">
+        select * from apps
+        order by updateTime desc limit #{start},#{end};
     </select>
+
 </mapper>

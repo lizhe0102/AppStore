@@ -41,9 +41,14 @@ public class AppServiceImpl implements IAppService {
     }
 
 
-    public  ArrayList<AppMessage> getAllAppMessage()
+    public  ArrayList<AppMessage> getAllAppMessage(int start,int end)
     {
-        return null;
+        ArrayList<App> apps=appDao.getAllApp(start,end);
+        ArrayList<Image> images=imageDao.getAllImage(start,end);
+        ArrayList<Category> categories=categoryDao.getAllCategory(start,end);
+        ArrayList<AppMessage> appMessages=new ArrayList<AppMessage>();
+        AppMessage.ConnectMessages(appMessages,apps,categories,images);
+        return appMessages;
     }
 
 }
