@@ -2,7 +2,7 @@ package com.appStore.model;
 
 import java.util.Date;
 
-public class Apps {
+public class App {
     private int id;
     private String appName;
     private String icon;

@@ -1,4 +1,4 @@
-package com.appStore.beanResource;
+package com.appStore.model;
 
 public class AppCategory {
     private int id;

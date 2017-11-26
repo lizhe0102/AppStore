@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.appStore.dao.IImageDao">
+
+    <select id="getImage" resultType="Image" parameterType="int">
+        SELECT * FROM image WHERE appId = #{id} ;
+    </select>
+
+    <select id="getAllImage" resultType="Image">
+        select* from image order by appId;
+    </select>
+</mapper>

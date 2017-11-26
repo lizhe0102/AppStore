@@ -1,23 +1,18 @@
-package com.appStore.beanResource;
-
-import com.appStore.model.Apps;
-import com.appStore.model.Category;
-import com.appStore.model.Image;
+package com.appStore.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class AppMessage {
-    private Apps apps;
+    private App app;
     private ArrayList<Image> images;
     private ArrayList<Category> categories;
 
-    public Apps getApps() {
-        return apps;
+    public App getApp() {
+        return app;
     }
 
-    public void setApps(Apps apps) {
-        this.apps = apps;
+    public void setApp(App app) {
+        this.app = app;
     }
 
     public ArrayList<Image> getImages() {
